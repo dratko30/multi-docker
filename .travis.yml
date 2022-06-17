@@ -15,9 +15,9 @@ after_success:
 # Log in to Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # take those images and push to Docker hub
-  - docker push baratko/radim/multi-client
-  - docker push baratko/radim/multi-nginx
-  - docker push baratko/radim/multi-server
-  - docker push baratko/radim/multi-worker
+  - docker push radim/multi-client
+  - docker push radim/multi-nginx
+  - docker push radim/multi-server
+  - docker push radim/multi-worker
 
 
