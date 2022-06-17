@@ -8,16 +8,16 @@ script:
   - docker run -e CI=true radim/react-test npm test
 
 after_success:
-  - docker build -t radim/multi-client ./client
-  - docker build -t radim/multi-nginx ./nginx
-  - docker build -t radim/multi-server ./server
-  - docker build -t radim/multi-worker ./worker
+  - docker build -t baratko/multi-client ./client
+  - docker build -t baratko/multi-nginx ./nginx
+  - docker build -t baratko/multi-server ./server
+  - docker build -t baratko/multi-worker ./worker
 # Log in to Docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
 # take those images and push to Docker hub
-  - docker push radim/multi-client
-  - docker push radim/multi-nginx
-  - docker push radim/multi-server
-  - docker push radim/multi-worker
+  - docker push baratko/multi-client
+  - docker push baratko/multi-nginx
+  - docker push baratko/multi-server
+  - docker push baratko/multi-worker
 
 
