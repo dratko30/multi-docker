@@ -17,7 +17,7 @@ function App() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Oba bese tesko !!!
+            Oba bese tesko po vtor pat!!!
           </a>
           <Link to="/">Home</Link>
           <Link to="/otherpage">Other Page</Link>
