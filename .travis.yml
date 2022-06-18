@@ -8,18 +8,6 @@ script:
   - docker run -e CI=true radim/react-test npm test
 
 
-deploy:
-  provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "multi-docker"
-  env: "Multidocker-env"
-  bucket_name: "elasticbeanstalk-us-east-1-039995468444"
-  bucket_path: "docker-multi"
-  on:
-    branch: master
-  access_key: $AWS_ACCESS_KEY
-  secret_access_key: $AWS_SECRET_KEY
-
 
 after_success:
   - docker build -t baratko/multi-client ./client
@@ -33,5 +21,17 @@ after_success:
   - docker push baratko/multi-nginx
   - docker push baratko/multi-server
   - docker push baratko/multi-worker
+
+  deploy:
+    provider: elasticbeanstalk
+    region: "us-east-1"
+    app: "multi-docker"
+    env: "Multidocker-env"
+    bucket_name: "elasticbeanstalk-us-east-1-039995468444"
+    bucket_path: "docker-multi"
+    on:
+      branch: master
+    access_key: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
 
 
