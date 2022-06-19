@@ -9,7 +9,7 @@ services:
     mem_limit: 128
     hostname: api
     environment:
-      -  REDIS_HOST=$REDIS_HOST
+      - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
       - PGUSER=$PGUSER
       - PGHOST=$PGHOST
