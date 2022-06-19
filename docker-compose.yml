@@ -2,11 +2,11 @@ version: '3.3'
 services:
   client:
     image: "baratko/multi-client"
-    mem_limit: 128
+    # mem_limit: 128
     hostname: client
   server:
     image: "baratko/multi-server"
-    mem_limit: 128
+    # mem_limit: 128
     hostname: api
     environment:
       - REDIS_HOST=$REDIS_HOST
@@ -18,14 +18,14 @@ services:
       - PGPORT=$PGPORT
   worker:
     image: "baratko/multi-worker"
-    mem_limit: 128
+    # mem_limit: 128
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
     image: "baratko/multi-nginx"
-    mem_limit: 128
+    # mem_limit: 128
     hostname: nginx
     ports:
     - "80:80"
