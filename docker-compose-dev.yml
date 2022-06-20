@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3'
 services:
   postgres:
     image: 'postgres:latest'
@@ -8,8 +8,8 @@ services:
     image: 'redis:latest'
   nginx:
     depends_on:
-    - api
-    - client
+      - api
+      - client
     restart: always
     build:
       dockerfile: Dockerfile.dev
@@ -32,6 +32,8 @@ services:
       - PGPASSWORD=postgres_password
       - PGPORT=5432
   client:
+    environment:
+      - WDS_SOCKET_PORT=0
     build:
       dockerfile: Dockerfile.dev
       context: ./client
